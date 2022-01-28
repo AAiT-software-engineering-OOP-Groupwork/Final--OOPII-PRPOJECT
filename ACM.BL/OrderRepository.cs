@@ -2,7 +2,7 @@
 
 namespace ACM.BL
 {
-  public class OrderRepository
+  public class OrderRepository 
   {
     /// <summary>
     /// Retrieve one order.
@@ -33,10 +33,31 @@ namespace ACM.BL
     /// <returns></returns>
     public bool Save(Order order)
     {
-      // Code that saves the passed in order
+            // Code that saves the passed in order
+            // Code that saves the passed in product
+            var success = true;
 
-      return true;
-    }
+            if (order.HasChanges)
+            {
+                if (order.IsValid)
+                {
+                    if (order.IsNew)
+                    {
+                        // Call an Insert stored Procidure
+                    }
+                    else
+                    {
+                        // call an update stored Procidure
+                    }
+
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
+        }
 
   }
 }
